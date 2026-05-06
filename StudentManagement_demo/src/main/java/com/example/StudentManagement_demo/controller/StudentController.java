@@ -19,6 +19,8 @@ import com.example.StudentManagement_demo.service.StudentService;
 
 import jakarta.validation.Valid;
 
+// Handles all student-related operations (CRUD)
+
 @RestController
 @RequestMapping("/students")
 public class StudentController {
@@ -29,6 +31,7 @@ public class StudentController {
         this.service = service;
     }
 
+    // Create student
     @PostMapping
     public ApiResponse<StudentResponseDTO> add(@Valid @RequestBody StudentDTO dto) {
         return new ApiResponse<>("Student created", service.add(dto));

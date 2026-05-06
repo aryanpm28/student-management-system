@@ -18,6 +18,9 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+// This filter runs before every request
+// It checks if JWT token is present and valid
+
 @Component
 public class JwtFilter extends OncePerRequestFilter {
 
@@ -28,11 +31,12 @@ public class JwtFilter extends OncePerRequestFilter {
     private UserRepository repo;
 
     @Override
-    protected void doFilterInternal(HttpServletRequest request,
-                                   HttpServletResponse response,
-                                   FilterChain chain)
-            throws ServletException, IOException {
+    protected void doFilterInternal(HttpServletRequest request,HttpServletResponse response,
+                                   FilterChain chain)throws ServletException, IOException {
 
+        // Extract token from request header
+        // Validate token and set authentication
+        
         String header = request.getHeader("Authorization");
 
         if (header != null && header.startsWith("Bearer ")) {

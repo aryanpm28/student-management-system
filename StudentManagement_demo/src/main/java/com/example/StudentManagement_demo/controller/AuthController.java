@@ -9,6 +9,8 @@ import com.example.StudentManagement_demo.dto.LoginDTO;
 import com.example.StudentManagement_demo.dto.RegisterDTO;
 import com.example.StudentManagement_demo.service.AuthService;
 
+// Handles authentication APIs like login and register
+
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
@@ -19,11 +21,13 @@ public class AuthController {
         this.service = service;
     }
 
+    // API for user registration
     @PostMapping("/register")
     public String register(@RequestBody RegisterDTO dto) {
         return service.register(dto);
     }
 
+    // API for user login
     @PostMapping("/login")
     public String login(@RequestBody LoginDTO dto) {
         return service.login(dto.getUsername(), dto.getPassword());

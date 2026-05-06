@@ -5,6 +5,9 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
+// DTO is used to transfer only required data
+// Prevents exposing full entity to client
+
 @Data
 public class StudentDTO {
 

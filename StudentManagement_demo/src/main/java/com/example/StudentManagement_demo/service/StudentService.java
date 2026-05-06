@@ -15,6 +15,9 @@ import com.example.StudentManagement_demo.entity.Student;
 import com.example.StudentManagement_demo.repository.StudentRepository;
 import com.example.StudentManagement_demo.repository.UserRepository;
 
+// Contains business logic of the application
+// Connects controller with repository
+
 @Service
 public class StudentService {
 
@@ -28,7 +31,7 @@ public class StudentService {
         this.userRepo = userRepo;
     }
 
-    // ✅ ADD STUDENT
+    //ADD STUDENT
     public StudentResponseDTO add(StudentDTO dto) {
 
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
@@ -48,7 +51,7 @@ public class StudentService {
         return map(repo.save(s));
     }
 
-    // ✅ GET ALL WITH PAGINATION (ONLY METHOD)
+    //GET ALL WITH PAGINATION (ONLY METHOD)
     public List<StudentResponseDTO> getAll(int page, int size) {
 
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
@@ -60,7 +63,7 @@ public class StudentService {
                 .toList();
     }
 
-    // ✅ DELETE
+    //DELETE
     public String deleteStudent(Long id) {
 
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
@@ -79,7 +82,7 @@ public class StudentService {
         return "Student deleted successfully";
     }
 
-    // ✅ UPDATE
+    //UPDATE
     public StudentResponseDTO update(Long id, StudentDTO dto) {
 
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
@@ -101,7 +104,7 @@ public class StudentService {
         return map(repo.save(student));
     }
 
-    // ✅ MAPPER
+    //MAPPER
     private StudentResponseDTO map(Student s) {
         StudentResponseDTO d = new StudentResponseDTO();
         d.setId(s.getId());

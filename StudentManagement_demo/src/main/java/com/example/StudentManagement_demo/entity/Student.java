@@ -10,6 +10,9 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.Data;
 
+// Represents database table
+// Each object = one row in DB
+
 @Data
 @Entity
 public class Student {

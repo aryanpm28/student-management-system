@@ -8,6 +8,9 @@ import org.springframework.stereotype.Component;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 
+// Utility class for handling JWT tokens
+// Used to generate, validate, and extract data from token
+
 @Component
 public class JwtUtil {
 
@@ -17,6 +20,7 @@ public class JwtUtil {
         return Keys.hmacShaKeyFor(SECRET.getBytes());
     }
 
+    // Generates token after successful login
     public String generateToken(String username) {
         return Jwts.builder()
                 .setSubject(username)
@@ -26,6 +30,7 @@ public class JwtUtil {
                 .compact();
     }
 
+    // Extracts username from token
     public String extractUsername(String token) {
         return Jwts.parserBuilder()
                 .setSigningKey(getKey())
