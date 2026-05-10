@@ -59,7 +59,7 @@ It allows users to register, login, and perform CRUD operations on students.
 
 1. Clone the project:
 
-git clone https://github.com/aryanpm1122/student-management-system.git
+git clone https://github.com/aryanpm28/student-management-system.git
 
 2. Open project in IDE
 
