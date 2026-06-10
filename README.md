@@ -1,93 +1,106 @@
-# 🎓 Student Management System
+# Student Management System
 
-This is a simple Spring Boot backend project to manage student data.
-It allows users to register, login, and perform CRUD operations on students.
+A RESTful Student Management System built using Spring Boot. This project provides secure APIs for managing student records with JWT Authentication and Swagger API documentation.
 
----
+## Features
 
-## 🚀 Features
+* Student CRUD Operations
+* JWT Authentication & Authorization
+* Role-Based Access Control (Admin/User)
+* Search Students by Name
+* Pagination Support
+* Input Validation
+* Global API Response Format
+* Swagger/OpenAPI Documentation
+* MySQL Database Integration
 
-* User Registration & Login 🔐
-* JWT Authentication
-* Add Student
-* View Students
-* Update Student
-* Delete Student
+## Technologies Used
 
----
-
-## 🛠️ Technologies Used
-
-* Java
+* Java 17
 * Spring Boot
 * Spring Security
+* JWT
 * Spring Data JPA
 * MySQL
 * Maven
+* Swagger/OpenAPI
 
----
+## Project Structure
 
-## 📁 Project Structure (Simple)
+```text
+controller
+service
+repository
+entity
+dto
+config
+security
+```
 
-* controller → Handles API requests
-* service → Business logic
-* repository → Database operations
-* entity → Database tables
-* dto → Data transfer objects
-* security → JWT & authentication
+## API Endpoints
 
----
+### Authentication
 
-## 🔑 API Endpoints
+| Method | Endpoint       |
+| ------ | -------------- |
+| POST   | /auth/register |
+| POST   | /auth/login    |
 
-### Auth APIs
+### Students
 
-* POST /auth/register → Register user
-* POST /auth/login → Login user
+| Method | Endpoint                          |
+| ------ | --------------------------------- |
+| POST   | /students                         |
+| GET    | /students?page=0&size=5           |
+| GET    | /students/search?name=studentName |
+| PUT    | /students/{id}                    |
+| DELETE | /students/{id}                    |
+| GET    | /students/admin/all               |
 
-### Student APIs
+## Swagger Documentation
 
-* POST /students → Add student
-* GET /students → Get all students
-* GET /students/{id} → Get student by ID
-* PUT /students/{id} → Update student
-* DELETE /students/{id} → Delete student
+After starting the application, open:
 
----
+```text
+http://localhost:8080/swagger-ui/index.html
+```
 
-## ⚙️ How to Run
+## Database Configuration
 
-1. Clone the project:
+Update the database details in:
 
-git clone https://github.com/aryanpm28/student-management-system.git
+```text
+src/main/resources/application.properties
+```
 
-2. Open project in IDE
+Example:
 
-3. Configure database in application.properties
+```properties
+spring.datasource.url=jdbc:mysql://localhost:3306/studentdb
+spring.datasource.username=root
+spring.datasource.password=yourpassword
+```
 
-4. Run the project:
+## Running the Project
 
+Clone the repository:
+
+```bash
+git clone <repository-url>
+```
+
+Navigate to the project folder:
+
+```bash
+cd StudentManagement_demo
+```
+
+Run the application:
+
+```bash
 mvn spring-boot:run
+```
 
----
-
-## 🧪 Testing
-
-* Use Postman
-* First register and login
-* Copy JWT token
-* Add in header:
-
-Authorization: Bearer <token>
-
----
-
-## 👨‍💻 Author
+## Author
 
 Aryan Patil
-
----
-
-## ⭐ Note
-
-This project is made for learning Java Backend Development using Spring Boot.
