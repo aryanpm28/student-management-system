@@ -31,12 +31,12 @@ public class JwtFilter extends OncePerRequestFilter {
     private UserRepository repo;
 
     @Override
-    protected void doFilterInternal(HttpServletRequest request,HttpServletResponse response,
-                                   FilterChain chain)throws ServletException, IOException {
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response,
+            FilterChain chain) throws ServletException, IOException {
 
         // Extract token from request header
         // Validate token and set authentication
-        
+
         String header = request.getHeader("Authorization");
 
         if (header != null && header.startsWith("Bearer ")) {
@@ -51,8 +51,7 @@ public class JwtFilter extends OncePerRequestFilter {
                 var auth = new UsernamePasswordAuthenticationToken(
                         username,
                         null,
-                        List.of(new SimpleGrantedAuthority("ROLE_" + user.getRole()))
-                );
+                        List.of(new SimpleGrantedAuthority("ROLE_" + user.getRole())));
 
                 SecurityContextHolder.getContext().setAuthentication(auth);
             }
